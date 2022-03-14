@@ -1,33 +1,9 @@
-# TASK-NAME
+# Animal Information With Variables 🦊
 
-This is the template for tasks. These repos are the starting points and instructions for students to explore a concept.
+![result](https://user-images.githubusercontent.com/84308096/154492581-93214499-5aeb-4abd-9fc7-7759e29daa94.png)
 
 ## Instructions
-- Fork and clone [this repository](https://github.com/JoinCODED/{REPO_NAME}) to your `Development` folder.
 
-## Objective and end result
-- Write the objective of the task.
-- If there are any images, make sure you resize them to around 880px maximum width. **Don't add big images**
-
-![screenshot](https://tenor.com/xNjE.gif)
-
-
-### 🍋 The basic challenge title
-
-- Step 1
-- Step 2
-- Step 3
-
-
-### 🤼‍♂️ The hard challenge title
-
-- Step 1
-- Step 2
-- Step 3
-
-
-### 🌶 The Extreme challenge title 
-
-- Step 1
-- Step 2
-- Step 3
+1. Open your project: animals_flutter_app.
+2. Create three variables (name, age, gender), with initial values.
+3. Use these variables inside your widget tree.
