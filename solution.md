@@ -1,168 +1,8 @@
 ## Instructions
 
-1. Create a new project call it: `animals_flutter_app` and set it up like you did in the previous task.
+1. Open the project: `animals_flutter_app` and open the `main.dart` file.
 
-```dart
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold()
-  }
-}
-```
-
-2. Pick up an animal picture online and create a folder in your root file and call it `assets`.
-3. And inside that folder create another folder named `images`.
-4. Drag your image inside this folder.
-5. Open `pubspec.yaml` and add your image path:
-
-```yaml
-assets:
-  - assets/images/animal.png
-```
-
-⚠️ Make sure of your image name and type, maybe rename your image to `animal` and check the type ex: jpg, png, jpeg etc.
-
-6. In your `Scaffold` `body` argument, pass it a `Column` widget.
-
-```dart
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column()
-    )
-  }
-```
-
-7. In your `Column`s `children` argument, add an `Image.asset` widget.
-
-```dart
-  Widget build(BuildContext context) {
-    return Scaffold(
-        body: Column(
-            children:[
-                Image.asset("assets/images/animal.jpg"),
-            ]
-        )
-    )
-  }
-```
-
-8. Give your image a `height` and `width`.
-
-```dart
-        Image.asset(
-              "assets/images/animal.jpg",
-              width: 200,
-              height: 200,
-            ),
-```
-
-9. Add 3 `Text` widgets and fill them up with the name, age and gender.
-
-```dart
-        Column(
-        children: [
-            Image.asset(
-              "assets/images/animal.jpg",
-              width: 200,
-              height: 200,
-            ),
-            Text("Name: Panda"),
-            Text("Age: 3"),
-            Text("Gender: Male"),
-        ],
-      ),
-```
-
-10. Add a `mainAxisAlignment` and `crossAxisAlignment` arguments to your `Column` widget.
-
-```dart
-    Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start, // <- Here
-        children: [...]
-    )
-```
-
-11. Wrap your `Image` widget with a `Container` widget.
-
-```dart
-    Container(
-            child: Image.asset(
-              "assets/images/animal.jpg",
-              width: 200,
-              height: 200,
-            ),
-          ),
-```
-
-12. Give it an `Alignment` argument.
-
-```dart
-Container(
-            alignment: Alignment.center,
-            child: Image.asset(
-              "assets/images/animal.jpg",
-              width: 200,
-              height: 200,
-            ),
-          ),
-```
-
-13. Wrap each `Text` widget with a `Container` widget.
-
-```dart
-        Container(
-            child: Text("Name: Panda"),
-          ),
-        Container(
-            child: Text("Age: 3"),
-          ),
-        Container(
-            child: Text("Gender: Male"),
-          )
-```
-
-14. Give your first `Text` widget a margin from the `top` and from the `left`.
-
-```dart
-        Container(
-            margin: EdgeInsets.only(top: 20, left: 40),
-            child: Text("Name: Panda"),
-          ),
-```
-
-15. Give the rest `Text` widgets a margin from the `left`.
-
-```dart
-          Container(
-            margin: EdgeInsets.only(left: 40),
-            child: Text("Age: 3"),
-          ),
-          Container(
-            margin: EdgeInsets.only(left: 40),
-            child: Text("Gender: Male"),
-          )
-```
-
-### 🍋 Decoration
-
-1. Give your each container a different color, and maybe style your text more 🖌️.
+2. We need to replace the values in our `Text` widgets with variables.
 
 ```dart
         Container(
@@ -182,36 +22,68 @@ Container(
           )
 ```
 
-### 🌶 Row
-
-1. Wrap your 3 `Container` with a `Text` in them with a `Row` widget.
+3. In your `HomeScreen` widget, add the first variable for the `name`, make it `final` and of type `String`:
 
 ```dart
-Row(
-            children: [
-              Container(
-                color: Colors.amber,
-                margin: EdgeInsets.only(left: 40),
-                child: Text("Name: Panda"),
-              ),
-              Container(
-                color: Colors.teal,
-                margin: EdgeInsets.only(left: 40),
-                child: Text("Age: 3"),
-              ),
-              Container(
-                color: Colors.deepOrangeAccent,
-                margin: EdgeInsets.only(left: 40),
-                child: Text("Gender: Male"),
-              ),
-            ],
-          )
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+  final String name = "Panda";
+  @override
+  Widget build(BuildContext context) {
+[...]
 ```
 
-2. Wrap your `Row` with a `Container` and give it a margin from the top.
+4. In your first `Text` widget, inject the `name` variable using string interpolation:
 
 ```dart
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            child: Row(...)
+        Container(
+            color:colors.amber,
+            margin: EdgeInsets.only(top: 20, left: 40),
+            child: Text("Name: $name"),
+          ),
+```
+
+5. Create your second variable for `age`, make it final and of type `int`:
+
+```dart
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+  final String name = "Panda";
+  final int age = 3;
+  @override
+  Widget build(BuildContext context) {
+[...]
+```
+
+6. In your second `Text` widget, inject the `age` variable using string interpolation:
+
+```dart
+        Container(
+            color: Colors.teal,
+            margin: EdgeInsets.only(left: 40),
+            child: Text("Age: $age"),
+          ),
+```
+
+7. Create your third variable for `gender`, make it final and of type `String`:
+
+```dart
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+  final String name = "Panda";
+  final int age = 3;
+  final String gender = "male";
+  @override
+  Widget build(BuildContext context) {
+[...]
+```
+
+6. In your third `Text` widget, inject the `gender` variable using string interpolation:
+
+```dart
+        Container(
+            color: Colors.teal,
+            margin: EdgeInsets.only(left: 40),
+            child: Text("Gender: $gender"),
+          ),
 ```
